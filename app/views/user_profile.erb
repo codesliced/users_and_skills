@@ -1,0 +1,19 @@
+<div class="container">
+
+<h3>User: <%= @user.name %> </h3>
+
+<div>
+Skills:
+<% @user.proficiencies.each do |prof| %>
+  <div class="title"><%= prof.skill.name %></a></div>
+    <%= prof.years %> years
+    Formal? <%= prof.formal %>
+<%end %>
+</div>
+<br>
+<br>
+<div>
+</div>
+
+
+</div>

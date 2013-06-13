@@ -1,10 +1,15 @@
 get '/' do
-  # render home page
   @users = User.all
 
   erb :index
 end
 
+get '/user_profile/:user_id' do
+  @user = User.find_by_id(params[:user_id])
+  @skills = @user.skills
+  # @proficiency = @user.find_by_skill_id(user /_id)
+  erb :user_profile
+end
 #----------- SESSIONS -----------
 
 get '/sessions/new' do

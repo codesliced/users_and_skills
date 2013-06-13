@@ -1,3 +1,12 @@
+bool = <<-BOOL
+yes
+no
+BOOL
+
+
+
+bool_seed = bool.each_line.to_a
+
 require 'faker'
 
 # create a few users
@@ -18,4 +27,13 @@ design_skills.each do |skill|
   Skill.create :name => skill, :context => 'creative'
 end
 
+
 # TODO: create associations between users and skills
+10.times do
+  proficiencies = Proficiency.create(
+    years: ((1..15).to_a).sample,
+    user_id: ((1..5).to_a).sample,
+    skill_id: ((1..10).to_a).sample,
+    formal: bool_seed.sample.strip 
+    )
+end
